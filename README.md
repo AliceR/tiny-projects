@@ -23,7 +23,7 @@ http://jamiepopkin.blogspot.ca/2015/05/morphing-between-svg-shapes.html
 	![distortion sample 1](https://github.com/AliceR/tiny-projects/blob/master/img/distortion1.jpg "Sample 1")
 	![distortion sample 2](https://github.com/AliceR/tiny-projects/blob/master/img/distortion2.jpg "Sample 2")
 
-### Flows
+### B. Flows
 Goal: play with possibilities to visualize movement  
 Examples & Tutorials:  
 http://www.lucify.com/the-flow-towards-europe/  
@@ -38,3 +38,9 @@ https://bl.ocks.org/mbostock/5649592
 	* draw path gradually given a certain speed (for example a road)
 	
 * **B3. Animate point on an invisible path**
+
+### C. WebGL
+Goal: learn how to use WebGL to make awesome globes
+Examples & Tutorials:
+https://www.chromeexperiments.com/webgl
+http://learningwebgl.com/blog/?page_id=1217
