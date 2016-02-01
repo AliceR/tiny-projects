@@ -44,3 +44,8 @@ Goal: learn how to use WebGL to make awesome globes
 Examples & Tutorials:
 https://www.chromeexperiments.com/webgl
 http://learningwebgl.com/blog/?page_id=1217
+
+
+### D. Routing
+Goal: find a meeting point in the middle of three locations
+Isochrones?
