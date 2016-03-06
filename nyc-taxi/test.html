@@ -18,7 +18,7 @@
 
 		var file = "./trip_data_1.csv";
 		var subset = [];
-		var tp = "2013-01-0";
+		var tp = "2013-01-13";
 		var map = L.map("map");
 		var heat;
 
@@ -37,7 +37,9 @@
 			complete: function() {
 				console.log("All done!");
 				//print(subset);
-				createmap();
+				//createmap();
+
+				console.log(JSON.stringify(subset));
 			}
 		});
 
@@ -76,11 +78,18 @@
 			for (var i = subset.length - 1; i >= 0; i--) {
 				var lat = subset[i].pickup_latitude;
 				var lon = subset[i].pickup_longitude;
-				//L.marker([lat,lon]).addTo(map);
-				positions.push(L.latLng(lat,lon));
+				// L.marker([lat,lon]).addTo(map);
+				// positions.push(L.latLng(lat,lon));
 			}
 
-			var heat = L.heatLayer(positions, { maxZoom: 12 }).addTo(map);
+			/*var heat = L.heatLayer(positions, {
+				minOpacity: 0,
+				maxZoom: 19,
+				max: 0.1,
+				radius: 15,
+				blur: 0,
+				gradient: {0.2: 'blue', 1: 'violet'}
+			}).addTo(map);*/
 
 
 		}
