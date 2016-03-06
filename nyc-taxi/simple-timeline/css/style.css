@@ -1,0 +1,13 @@
+.timeaxis path, .rideaxis path{
+	fill:none;
+	stroke: black;
+	stroke-width:0.5px;
+}
+.timeline text{
+	font-size:10px;
+}
+.bars rect{
+	fill: #EBD9D9;
+	stroke: #575656;
+	stroke-width: 0.5px;
+}
