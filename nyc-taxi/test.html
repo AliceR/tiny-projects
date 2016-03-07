@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>NYC Taxi</title>
@@ -11,21 +11,15 @@
 
 </head>
 <body>
-	<p id="t"> </p>
+	<h2>Selection of 2000 taxi drives on the 12<sup>th</sup> of January 2013  </h2>
 
-	<div id="map" style="width: 800; height: 500"></div>
+	<div id="map" style="width: 800px; height: 500px"></div>
 	<script type="text/javascript">
-
-		var file = "./trip_data_1.csv";
 		var subset = [];
-		var tp = "2013-01-13";
-		var map = L.map("map");
-		var heat;
-
 
 		Papa.SCRIPT_PATH = "papaparse.min.js";
 
-		Papa.parse(file, {
+		Papa.parse("dataprocessing/taxi_trip_12_01_2013.csv", {
 			delimiter: ",", // "" for auto-detect
 			newline: "\n",	// auto-detect
 			header: true,
@@ -36,35 +30,17 @@
 			},
 			complete: function() {
 				console.log("All done!");
-				//print(subset);
-				//createmap();
-
-				console.log(JSON.stringify(subset));
+				createmap();
 			}
 		});
 
 		function filter(row){
-
-			if (~row.data[0].pickup_datetime.indexOf(tp)) {
-				var date = new Date(row.data[0].pickup_datetime);
-
 				subset.push(row.data[0]);
-			}
-
 		}
-
-		function print(data){
-			var output = document.getElementById("t");
-
-			for (var i = data.length - 1; i >= 0; i--) {
-				output.innerHTML = output.innerHTML + "<br>" + data[i].pickup_datetime;
-			}
-		}
-
-		var positions = [];
 
 		function createmap(){
-
+			var positions = [], heat;
+			var map = L.map("map");
 			map.setView([40.773985, -73.968429], 12);
 
 			var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
@@ -73,28 +49,22 @@
 
 			layer.addTo(map);
 
-			console.log(subset);
-
 			for (var i = subset.length - 1; i >= 0; i--) {
 				var lat = subset[i].pickup_latitude;
 				var lon = subset[i].pickup_longitude;
-				// L.marker([lat,lon]).addTo(map);
-				// positions.push(L.latLng(lat,lon));
+				//L.marker([lat,lon]).addTo(map);
+				positions.push(L.latLng(lat,lon));
 			}
 
-			/*var heat = L.heatLayer(positions, {
+			var heat = L.heatLayer(positions, {
 				minOpacity: 0,
 				maxZoom: 19,
 				max: 0.1,
 				radius: 15,
 				blur: 0,
 				gradient: {0.2: 'blue', 1: 'violet'}
-			}).addTo(map);*/
-
-
+			}).addTo(map);
 		}
-
-
 	</script>
 </body>
 </html>
