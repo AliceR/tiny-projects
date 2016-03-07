@@ -5,4 +5,6 @@ nyc-taxi/trip_data_1.csv.zip
 
 nyc-taxi/dataprocessing/trip_data_1.csv
 
-nyc-taxi/.DS_Store
+.DS_Store
+
+nyc-taxi/dataprocessing/.idea
